@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 namespace BatteryCurrent
@@ -65,6 +66,9 @@ namespace BatteryCurrent
                 {
                     //TODO: Load state from previously suspended application
                 }
+                ImageBrush ib = new ImageBrush();
+                ib.ImageSource = new BitmapImage(new Uri(@"ms-appx:///images/background.png", UriKind.RelativeOrAbsolute));
+                rootFrame.Background = ib;
 
                 // Place the frame in the current Window
                 Window.Current.Content = rootFrame;
