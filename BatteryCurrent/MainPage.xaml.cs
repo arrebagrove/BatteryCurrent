@@ -97,58 +97,57 @@ namespace BatteryCurrent
             txt1.Margin = new Thickness(0, 15, 0, 0);
             txt1.TextWrapping = TextWrapping.WrapWholeWords;
 
-            TextBlock txt2 = new TextBlock { Text = "Battery status: " + report.Status.ToString() };
-            txt2.FontStyle = Windows.UI.Text.FontStyle.Italic;
-            txt2.Margin = new Thickness(0, 0, 0, 15);
-            
-            TextBlock txt3 = new TextBlock { Text = "Charge rate (mW): " + report.ChargeRateInMilliwatts.ToString() };
-            Debug.WriteLine("Charge Rate (mA): "  + (report.ChargeRateInMilliwatts/3.8));            TextBlock txt4 = new TextBlock { Text = "Design energy capacity (mWh): " + report.DesignCapacityInMilliwattHours.ToString() };
-            TextBlock txt5 = new TextBlock { Text = "Fully-charged energy capacity (mWh): " + report.FullChargeCapacityInMilliwattHours.ToString() };
-            TextBlock txt6 = new TextBlock { Text = "Remaining energy capacity (mWh): " + report.RemainingCapacityInMilliwattHours.ToString() };
+           
+           
+            batteryStatus.Text = report.Status.ToString();
+            chargingRatemA.Text = (report.ChargeRateInMilliwatts / 3.8).ToString();
+            chargingRatemW.Text = (report.ChargeRateInMilliwatts).ToString();
+            fullEnergyCapacitymAH.Text = ((report.FullChargeCapacityInMilliwattHours)/3.8).ToString();
+            fullEnergyCapacitymWH.Text = ((report.FullChargeCapacityInMilliwattHours)).ToString();
 
+            remainingEnergyCapacitymWH.Text = (report.RemainingCapacityInMilliwattHours).ToString();
+            remainingEnergyCapacitymAH.Text = ((report.RemainingCapacityInMilliwattHours) / 3.8).ToString();
+
+            batteryPercent.Text = ((Convert.ToDouble(report.RemainingCapacityInMilliwattHours) / (Convert.ToDouble(report.FullChargeCapacityInMilliwattHours))) * 100).ToString("F2") + "%";
+            timeToCharge.Text = ((((report.FullChargeCapacityInMilliwattHours) / 3.8) - ((report.RemainingCapacityInMilliwattHours) / 3.8))/(report.ChargeRateInMilliwatts/3.8)).ToString();
             // Create energy capacity progress bar & labels
-            TextBlock pbLabel = new TextBlock { Text = "Percent remaining energy capacity" };
-            pbLabel.Margin = new Thickness(0, 10, 0, 5);
-            pbLabel.FontFamily = new FontFamily("Segoe UI");
-            pbLabel.FontSize = 11;
+            //TextBlock pbLabel = new TextBlock { Text = "Percent remaining energy capacity" };
+            //pbLabel.Margin = new Thickness(0, 10, 0, 5);
+            //pbLabel.FontFamily = new FontFamily("Segoe UI");
+            //pbLabel.FontSize = 11;
 
-            ProgressBar pb = new ProgressBar();
-            pb.Margin = new Thickness(0, 5, 0, 0);
-            pb.Width = 200;
-            pb.Height = 10;
-            pb.IsIndeterminate = false;
-            pb.HorizontalAlignment = HorizontalAlignment.Left;
+            //ProgressBar pb = new ProgressBar();
+            //pb.Margin = new Thickness(0, 5, 0, 0);
+            //pb.Width = 200;
+            //pb.Height = 10;
+            //pb.IsIndeterminate = false;
+            //pb.HorizontalAlignment = HorizontalAlignment.Left;
 
-            TextBlock pbPercent = new TextBlock();
-            pbPercent.Margin = new Thickness(0, 5, 0, 10);
-            pbPercent.FontFamily = new FontFamily("Segoe UI");
-            pbLabel.FontSize = 11;
+            //TextBlock pbPercent = new TextBlock();
+            //pbPercent.Margin = new Thickness(0, 5, 0, 10);
+            //pbPercent.FontFamily = new FontFamily("Segoe UI");
+            //pbLabel.FontSize = 11;
 
-            // Disable progress bar if values are null
-            if ((report.FullChargeCapacityInMilliwattHours == null) ||
-                (report.RemainingCapacityInMilliwattHours == null))
-            {
-                pb.IsEnabled = false;
-                pbPercent.Text = "N/A";
-            }
-            else
-            {
-                pb.IsEnabled = true;
-                pb.Maximum = Convert.ToDouble(report.FullChargeCapacityInMilliwattHours);
-                pb.Value = Convert.ToDouble(report.RemainingCapacityInMilliwattHours);
-                pbPercent.Text = ((pb.Value / pb.Maximum) * 100).ToString("F2") + "%";
-            }
+            //// Disable progress bar if values are null
+            //if ((report.FullChargeCapacityInMilliwattHours == null) ||
+            //    (report.RemainingCapacityInMilliwattHours == null))
+            //{
+            //    pb.IsEnabled = false;
+            //    pbPercent.Text = "N/A";
+            //}
+            //else
+            //{
+            //    pb.IsEnabled = true;
+            //    pb.Maximum = Convert.ToDouble(report.FullChargeCapacityInMilliwattHours);
+            //    pb.Value = Convert.ToDouble(report.RemainingCapacityInMilliwattHours);
+            //    pbPercent.Text = ((pb.Value / pb.Maximum) * 100).ToString("F2") + "%";
+            //}
 
-            // Add controls to stackpanel
-            sp.Children.Add(txt1);
-            sp.Children.Add(txt2);
-            sp.Children.Add(txt3);
-            sp.Children.Add(txt4);
-            sp.Children.Add(txt5);
-            sp.Children.Add(txt6);
-            sp.Children.Add(pbLabel);
-            sp.Children.Add(pb);
-            sp.Children.Add(pbPercent);
+            //// Add controls to stackpanel
+            
+            //sp.Children.Add(pbLabel);
+            //sp.Children.Add(pb);
+            //sp.Children.Add(pbPercent);
         }
 
         async private void AggregateBattery_ReportUpdated(Battery sender, object args)

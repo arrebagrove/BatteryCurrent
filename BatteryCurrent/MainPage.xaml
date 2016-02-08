@@ -21,57 +21,82 @@
         <StackPanel x:Name="BatteryReportPanel" Margin="15,15,0,0"/>
     </StackPanel>-->
     <Grid>
-        <Grid Visibility="Collapsed">
+        <Grid Visibility="Visible">
             <StackPanel>
-                <StackPanel VerticalAlignment="Center" Margin="15,30,0,0" Visibility="Collapsed">
+                <StackPanel VerticalAlignment="Center" Margin="15,30,0,0" Visibility="Visible">
                     <RadioButton x:Name="AggregateButton" Content="Aggregate results" GroupName="Type" IsChecked="True" />
                     <RadioButton x:Name="IndividualButton" Content="Individual results" GroupName="Type" IsChecked="False" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Button x:Name="GetBatteryReportButton" 
-                Content="Get battery report" 
-                Margin="15,15,0,0" 
-                Click="GetBatteryReport"/>
+                    
                 </StackPanel>
                 <StackPanel x:Name="BatteryReportPanel" Margin="15,15,0,0"/>
             </StackPanel>
         </Grid>
-        <Grid x:Name="batteryInfoGrid" Background="#272E3A" Visibility="Collapsed">
+        <Grid x:Name="batteryInfoGrid" Background="#272E3A" Visibility="Visible">
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.5*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="150"></RowDefinition>
-            </Grid.RowDefinitions>
-
-           
+                <RowDefinition Height="100"></RowDefinition>
+            </Grid.RowDefinitions>          
             
             <StackPanel Orientation="Vertical" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top">
-                <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="20">
+                <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0">
                     <TextBlock Text="Battery Status :" Grid.Row="1" Grid.Column="0" Margin="0,10,0,10" HorizontalAlignment="Right" Foreground="#f3f4f7"></TextBlock>
-                    <TextBlock Text=" Charging" Grid.Row="1" Grid.Column="1" Margin="0,10,0,10" HorizontalAlignment="Left" Foreground="#f3f4f7"></TextBlock>
+                    <TextBlock x:Name="batteryStatus" Text=" Charging" Grid.Row="1" Grid.Column="1" Margin="0,10,0,10" HorizontalAlignment="Left" Foreground="#f3f4f7"></TextBlock>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="20">
+                <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0">
                     <TextBlock Text="Charging Rate (mW) :" Margin="0,10,0,10" HorizontalAlignment="Right" Foreground="#f3f4f7"></TextBlock>
-                    <TextBlock Text=" 561" Margin="0,10,0,10" HorizontalAlignment="Left" Foreground="#f3f4f7"></TextBlock>
+                    <TextBlock x:Name="chargingRatemW" Text=" 561" Margin="0,10,0,10" HorizontalAlignment="Left" Foreground="#f3f4f7"></TextBlock>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="20">
-                    <TextBlock Text="Charging Rate (mW) :" Margin="0,10,0,10" HorizontalAlignment="Right" Foreground="#f3f4f7"></TextBlock>
-                    <TextBlock Text=" 230" Grid.Row="1" Grid.Column="1" Margin="0,10,0,10" HorizontalAlignment="Left" Foreground="#f3f4f7"></TextBlock>
+                <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0">
+                    <TextBlock Text="Charging Rate (mA) :" Margin="0,10,0,10" HorizontalAlignment="Right" Foreground="#f3f4f7"></TextBlock>
+                    <TextBlock x:Name="chargingRatemA" Text=" 230" Grid.Row="1" Grid.Column="1" Margin="0,10,0,10" HorizontalAlignment="Left" Foreground="#f3f4f7"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0">
+                    <TextBlock Text="Fully Charged Energy Capacity (mWH) :" Margin="0,10,0,10" HorizontalAlignment="Right" Foreground="#f3f4f7"></TextBlock>
+                    <TextBlock x:Name="fullEnergyCapacitymWH" Text=" 230" Grid.Row="1" Grid.Column="1" Margin="0,10,0,10" HorizontalAlignment="Left" Foreground="#f3f4f7"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0">
+                    <TextBlock Text="Fully Charged Energy Capacity (mA) :" Margin="0,10,0,10" HorizontalAlignment="Right" Foreground="#f3f4f7"></TextBlock>
+                    <TextBlock x:Name="fullEnergyCapacitymAH" Text=" 230" Grid.Row="1" Grid.Column="1" Margin="0,10,0,10" HorizontalAlignment="Left" Foreground="#f3f4f7"></TextBlock>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0">
+                    <TextBlock Text="Remaining Energy Capacity (mWH) :" Margin="0,10,0,10" HorizontalAlignment="Right" Foreground="#f3f4f7"></TextBlock>
+                    <TextBlock x:Name="remainingEnergyCapacitymWH" Text=" 230" Grid.Row="1" Grid.Column="1" Margin="0,10,0,10" HorizontalAlignment="Left" Foreground="#f3f4f7"></TextBlock>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0">
+                    <TextBlock Text="Remainig Energy Capacity (mAH) :" Margin="0,10,0,10" HorizontalAlignment="Right" Foreground="#f3f4f7"></TextBlock>
+                    <TextBlock x:Name="remainingEnergyCapacitymAH" Text=" 230" Grid.Row="1" Grid.Column="1" Margin="0,10,0,10" HorizontalAlignment="Left" Foreground="#f3f4f7"></TextBlock>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0">
+                    <TextBlock Text="Battery Percent :" Margin="0,10,0,10" HorizontalAlignment="Right" Foreground="#f3f4f7"></TextBlock>
+                    <TextBlock x:Name="batteryPercent" Text=" 230" Grid.Row="1" Grid.Column="1" Margin="0,10,0,10" HorizontalAlignment="Left" Foreground="#f3f4f7"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0">
+                    <TextBlock Text="Time to Charge :" Margin="0,10,0,10" HorizontalAlignment="Right" Foreground="#f3f4f7"></TextBlock>
+                    <TextBlock x:Name="timeToCharge" Text=" 230" Grid.Row="1" Grid.Column="1" Margin="0,10,0,10" HorizontalAlignment="Left" Foreground="#f3f4f7"></TextBlock>
                 </StackPanel>
             </StackPanel>
-            
+            <Button x:Name="GetBatteryReportButton" 
+                Content="Get battery report" 
+                Margin="15,15,0,0" Foreground="White"
+                Click="GetBatteryReport"/>
             <Rectangle Height="60" Width="60" Grid.Row="2" 
                        Fill="#E15151" RadiusX="10" RadiusY="10"
                        HorizontalAlignment="Center" x:Name="batteryInfoRectangle"
                        Tapped="batteryInfoRectangle_Tapped"
                        VerticalAlignment="Center"></Rectangle>
             <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE1A1;" 
-                       Grid.Row="2" FontSize="35" Foreground="#f3f4f7"
+                       Grid.Row="2" FontSize="30" Foreground="#f3f4f7"
                        HorizontalAlignment="Center" x:Name="batteryInfoTextBlock"
                        Tapped="batteryInfoTextBlock_Tapped"
                        VerticalAlignment="Center"></TextBlock>
         </Grid>
-        <Grid Visibility="Visible" x:Name="basicBatteryInfoGrid">
+        <Grid Visibility="Collapsed" x:Name="basicBatteryInfoGrid">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.5*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
@@ -81,21 +106,21 @@
                    HorizontalAlignment="Center" VerticalAlignment="Center"
                    FontSize="40" Foreground="#878B91"></TextBlock>
 
-            <Ellipse HorizontalAlignment="Center" Stroke="#878B91" StrokeThickness="2"
+            <Ellipse HorizontalAlignment="Center" Stroke="#878B91" StrokeThickness="1"
                  VerticalAlignment="Center" Grid.Row="1"
-                 Height="170" Width="170"></Ellipse>
+                 Height="180" Width="180"></Ellipse>
 
-            <Ellipse HorizontalAlignment="Center" Stroke="#878B91" StrokeThickness="2"
+            <Ellipse HorizontalAlignment="Center" Stroke="#878B91" StrokeThickness="1"
                  VerticalAlignment="Center" Grid.Row="1" Opacity="0.8"
-                 Height="172" Width="172"></Ellipse>
+                 Height="182" Width="182"></Ellipse>
 
-            <Ellipse HorizontalAlignment="Center" Stroke="#878B91" StrokeThickness="2"
+            <Ellipse HorizontalAlignment="Center" Stroke="#878B91" StrokeThickness="1"
                  VerticalAlignment="Center" Grid.Row="1" Opacity="0.5"
-                 Height="174" Width="174"></Ellipse>
+                 Height="184" Width="184"></Ellipse>
 
-            <Ellipse HorizontalAlignment="Center" Stroke="#878B91" StrokeThickness="2"
+            <Ellipse HorizontalAlignment="Center" Stroke="#878B91" StrokeThickness="1"
                  VerticalAlignment="Center" Grid.Row="1" Opacity="0.2"
-                 Height="176" Width="176"></Ellipse>
+                 Height="186" Width="186"></Ellipse>
 
             <StackPanel Orientation="Horizontal" Margin="7,0,0,0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock Text="95" Foreground="#878B91" FontWeight="Light"
