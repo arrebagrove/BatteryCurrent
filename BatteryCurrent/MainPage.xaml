@@ -6,6 +6,209 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    <Page.Resources>
+        <Storyboard x:Name="RedButtonTapped">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="basicBatteryInfoGrid">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0.7">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0.4">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="basicBatteryInfoGrid">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0.7">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0.4">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="basicBatteryInfoGrid">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="batteryInfoGrid">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0.6"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.8"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="batteryInfoGrid">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0.6"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.8"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="batteryInfoGrid">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+
+
+        <Storyboard x:Name="RedButtonPressedAgain">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="batteryInfoGrid">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="basicBatteryInfoGrid">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="batteryInfoGrid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0.7"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0.4"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="batteryInfoGrid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0.7"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0.4"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="basicBatteryInfoGrid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0.5">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="basicBatteryInfoGrid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0.5">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CubicEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)" Storyboard.TargetName="basicBatteryInfoGrid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.666667"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.7"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)" Storyboard.TargetName="basicBatteryInfoGrid">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0.666667"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0.7"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Page.Resources>
 
     <!--<StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Visibility="Collapsed">
         <StackPanel VerticalAlignment="Center" Margin="15,30,0,0" >
@@ -21,55 +224,47 @@
         <StackPanel x:Name="BatteryReportPanel" Margin="15,15,0,0"/>
     </StackPanel>-->
     <Grid>
-        <Grid Visibility="Collapsed">
-            <StackPanel>
-                <StackPanel VerticalAlignment="Center" Margin="15,30,0,0" Visibility="Visible">
-                    <RadioButton x:Name="AggregateButton" Content="Aggregate results" GroupName="Type" IsChecked="True" />
-                    <RadioButton x:Name="IndividualButton" Content="Individual results" GroupName="Type" IsChecked="False" />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    
-                </StackPanel>
-                <StackPanel x:Name="BatteryReportPanel" Margin="15,15,0,0"/>
-            </StackPanel>
-        </Grid>
-        <Grid x:Name="batteryInfoGrid" Background="#272E3A" Visibility="Collapsed">
+
+        <Grid x:Name="batteryInfoGrid" Background="#272E3A" Visibility="Visible" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <CompositeTransform/>
+            </Grid.RenderTransform>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="100"></RowDefinition>
-            </Grid.RowDefinitions>          
-            
+                <RowDefinition Height="200"></RowDefinition>
+            </Grid.RowDefinitions>
+
             <StackPanel Orientation="Vertical" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top">
                 <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0">
                     <TextBlock Text="Battery Status :" Grid.Row="1" Grid.Column="0" Margin="0,10,0,10" HorizontalAlignment="Right" Foreground="#f3f4f7"></TextBlock>
                     <TextBlock x:Name="batteryStatus" Text=" Charging" Grid.Row="1" Grid.Column="1" Margin="0,10,0,10" HorizontalAlignment="Left" Foreground="#f3f4f7"></TextBlock>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0">
+                <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0" Visibility="Collapsed">
                     <TextBlock Text="Charging Rate (mW) :" Margin="0,10,0,10" HorizontalAlignment="Right" Foreground="#f3f4f7"></TextBlock>
-                    <TextBlock x:Name="chargingRatemW" Text=" 561" Margin="0,10,0,10" HorizontalAlignment="Left" Foreground="#f3f4f7"></TextBlock>
+                    <TextBlock x:Name="chargingRatemW" TextWrapping="Wrap" Margin="0,10,0,10" HorizontalAlignment="Left" Foreground="#f3f4f7"></TextBlock>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0">
                     <TextBlock Text="Charging Rate (mA) :" Margin="0,10,0,10" HorizontalAlignment="Right" Foreground="#f3f4f7"></TextBlock>
-                    <TextBlock x:Name="chargingRatemA" Text=" 230" Grid.Row="1" Grid.Column="1" Margin="0,10,0,10" HorizontalAlignment="Left" Foreground="#f3f4f7"></TextBlock>
+                    <TextBlock x:Name="chargingRatemA" TextWrapping="Wrap" Grid.Row="1" Grid.Column="1" Margin="0,10,0,10" HorizontalAlignment="Left" Foreground="#f3f4f7"></TextBlock>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0">
+                <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0" Visibility="Collapsed">
                     <TextBlock Text="Fully Charged Energy Capacity (mWH) :" Margin="0,10,0,10" HorizontalAlignment="Right" Foreground="#f3f4f7"></TextBlock>
-                    <TextBlock x:Name="fullEnergyCapacitymWH" Text=" 230" Grid.Row="1" Grid.Column="1" Margin="0,10,0,10" HorizontalAlignment="Left" Foreground="#f3f4f7"></TextBlock>
+                    <TextBlock x:Name="fullEnergyCapacitymWH" TextWrapping="Wrap" Grid.Row="1" Grid.Column="1" Margin="0,10,0,10" HorizontalAlignment="Left" Foreground="#f3f4f7"></TextBlock>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0">
                     <TextBlock Text="Fully Charged Energy Capacity (mA) :" Margin="0,10,0,10" HorizontalAlignment="Right" Foreground="#f3f4f7"></TextBlock>
-                    <TextBlock x:Name="fullEnergyCapacitymAH" Text=" 230" Grid.Row="1" Grid.Column="1" Margin="0,10,0,10" HorizontalAlignment="Left" Foreground="#f3f4f7"></TextBlock>
+                    <TextBlock x:Name="fullEnergyCapacitymAH" TextWrapping="Wrap" Grid.Row="1" Grid.Column="1" Margin="0,10,0,10" HorizontalAlignment="Left" Foreground="#f3f4f7"></TextBlock>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0">
                     <TextBlock Text="Remaining Energy Capacity (mWH) :" Margin="0,10,0,10" HorizontalAlignment="Right" Foreground="#f3f4f7"></TextBlock>
-                    <TextBlock x:Name="remainingEnergyCapacitymWH" Text=" 230" Grid.Row="1" Grid.Column="1" Margin="0,10,0,10" HorizontalAlignment="Left" Foreground="#f3f4f7"></TextBlock>
+                    <TextBlock x:Name="remainingEnergyCapacitymWH" TextWrapping="Wrap" Grid.Row="1" Grid.Column="1" Margin="0,10,0,10" HorizontalAlignment="Left" Foreground="#f3f4f7"></TextBlock>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0">
                     <TextBlock Text="Remainig Energy Capacity (mAH) :" Margin="0,10,0,10" HorizontalAlignment="Right" Foreground="#f3f4f7"></TextBlock>
-                    <TextBlock x:Name="remainingEnergyCapacitymAH" Text=" 230" Grid.Row="1" Grid.Column="1" Margin="0,10,0,10" HorizontalAlignment="Left" Foreground="#f3f4f7"></TextBlock>
+                    <TextBlock x:Name="remainingEnergyCapacitymAH" TextWrapping="Wrap" Grid.Row="1" Grid.Column="1" Margin="0,10,0,10" HorizontalAlignment="Left" Foreground="#f3f4f7"></TextBlock>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0">
@@ -81,10 +276,10 @@
                     <TextBlock x:Name="timeToCharge" Text=" 230" Grid.Row="1" Grid.Column="1" Margin="0,10,0,10" HorizontalAlignment="Left" Foreground="#f3f4f7"></TextBlock>
                 </StackPanel>
             </StackPanel>
-            <Button x:Name="GetBatteryReportButton" 
+            <!--<Button x:Name="GetBatteryReportButton" 
                 Content="Get battery report" Grid.Row="2"
                 Margin="15,15,0,0" Foreground="White"
-                Click="GetBatteryReport"/>
+                Click="GetBatteryReport"/>-->
             <Rectangle Height="60" Width="60" Grid.Row="2" 
                        Fill="#E15151" RadiusX="10" RadiusY="10"
                        HorizontalAlignment="Center" x:Name="batteryInfoRectangle"
@@ -96,14 +291,17 @@
                        Tapped="batteryInfoTextBlock_Tapped"
                        VerticalAlignment="Center"></TextBlock>
         </Grid>
-        <Grid Visibility="Visible" x:Name="basicBatteryInfoGrid">
+        <Grid Visibility="Collapsed" x:Name="basicBatteryInfoGrid" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <CompositeTransform/>
+            </Grid.RenderTransform>
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.5*"></RowDefinition>
+                <RowDefinition Height="100"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="150"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
-            <TextBlock x:Name="batteryStateText" Text="Charging..."  FontWeight="Light" CharacterSpacing="50"
-                   HorizontalAlignment="Center" VerticalAlignment="Center"
+            <TextBlock x:Name="batteryStateText" Text="Charging"  FontWeight="Light" CharacterSpacing="50"
+                   HorizontalAlignment="Center" VerticalAlignment="Bottom"
                    FontSize="40" Foreground="#878B91"></TextBlock>
 
             <Ellipse HorizontalAlignment="Center" Stroke="#878B91" StrokeThickness="1"
@@ -123,23 +321,30 @@
                  Height="186" Width="186"></Ellipse>
 
             <StackPanel Orientation="Horizontal" Margin="7,0,0,0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock Text="95" Foreground="#878B91" FontWeight="Light"
+                <TextBlock Text="95" x:Name="chargingpercentage" Foreground="#878B91" FontWeight="Light"
                            CharacterSpacing="40" FontSize="80"></TextBlock>
-                <TextBlock Text="%" FontSize="40" Foreground="#878B91" FontWeight="Light"
+                <TextBlock Text="%" FontSize="30" Foreground="#878B91" FontWeight="Light"
                            Margin="2,20,0,0" VerticalAlignment="Center"></TextBlock>
             </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Row="2" Margin="10">
+                <TextBlock Text="It will take" Foreground="#f3f4f7" FontSize="20" CharacterSpacing="40" TextWrapping="WrapWholeWords" HorizontalAlignment="Center"></TextBlock>
+                <TextBlock x:Name="timeInWords" Text="1h 23min" Grid.Row="2" Foreground="#f3f4f7" TextWrapping="WrapWholeWords"
+                       HorizontalAlignment="Center" TextAlignment="Center" CharacterSpacing="40" FontSize="40"></TextBlock>
+                <TextBlock x:Name="toWhatState" Text="to charge" Foreground="#f3f4f7" FontSize="20" CharacterSpacing="40" TextWrapping="WrapWholeWords" HorizontalAlignment="Center"></TextBlock>
 
-            <Rectangle Height="60" Width="60" Grid.Row="2" 
+                <Grid Grid.Row="2" Margin="10">
+                    <Rectangle Height="60" Width="60" Grid.Row="2" Margin="10"
                        Fill="#E15151" RadiusX="10" RadiusY="10"
                        HorizontalAlignment="Center" x:Name="basicBatteryInfoRectangle"
                        Tapped="basicBatteryInfoRectangle_Tapped"
                        VerticalAlignment="Center"></Rectangle>
-            <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE15B;" 
+                    <TextBlock FontFamily="Segoe MDL2 Assets" Text="&#xE15B;" 
                        Grid.Row="2" FontSize="35" Foreground="#f3f4f7"
                        Tapped="basicBatteryInfoTextBlock_Tapped"
                        HorizontalAlignment="Center" x:Name="basicBatteryInfoTextBlock"
                        VerticalAlignment="Center"></TextBlock>
-
+                </Grid>
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>
