@@ -21,7 +21,7 @@
         <StackPanel x:Name="BatteryReportPanel" Margin="15,15,0,0"/>
     </StackPanel>-->
     <Grid>
-        <Grid Visibility="Visible">
+        <Grid Visibility="Collapsed">
             <StackPanel>
                 <StackPanel VerticalAlignment="Center" Margin="15,30,0,0" Visibility="Visible">
                     <RadioButton x:Name="AggregateButton" Content="Aggregate results" GroupName="Type" IsChecked="True" />
@@ -33,7 +33,7 @@
                 <StackPanel x:Name="BatteryReportPanel" Margin="15,15,0,0"/>
             </StackPanel>
         </Grid>
-        <Grid x:Name="batteryInfoGrid" Background="#272E3A" Visibility="Visible">
+        <Grid x:Name="batteryInfoGrid" Background="#272E3A" Visibility="Collapsed">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
@@ -82,7 +82,7 @@
                 </StackPanel>
             </StackPanel>
             <Button x:Name="GetBatteryReportButton" 
-                Content="Get battery report" 
+                Content="Get battery report" Grid.Row="2"
                 Margin="15,15,0,0" Foreground="White"
                 Click="GetBatteryReport"/>
             <Rectangle Height="60" Width="60" Grid.Row="2" 
@@ -96,26 +96,26 @@
                        Tapped="batteryInfoTextBlock_Tapped"
                        VerticalAlignment="Center"></TextBlock>
         </Grid>
-        <Grid Visibility="Collapsed" x:Name="basicBatteryInfoGrid">
+        <Grid Visibility="Visible" x:Name="basicBatteryInfoGrid">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.5*"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="150"></RowDefinition>
             </Grid.RowDefinitions>
-            <TextBlock x:Name="BatteryState" Text="Charging..."  FontWeight="Light" CharacterSpacing="50"
+            <TextBlock x:Name="batteryStateText" Text="Charging..."  FontWeight="Light" CharacterSpacing="50"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
                    FontSize="40" Foreground="#878B91"></TextBlock>
 
             <Ellipse HorizontalAlignment="Center" Stroke="#878B91" StrokeThickness="1"
-                 VerticalAlignment="Center" Grid.Row="1"
+                 VerticalAlignment="Center" Grid.Row="1" Fill="#f3f4f7" Opacity="0.5"
                  Height="180" Width="180"></Ellipse>
 
             <Ellipse HorizontalAlignment="Center" Stroke="#878B91" StrokeThickness="1"
-                 VerticalAlignment="Center" Grid.Row="1" Opacity="0.8"
+                 VerticalAlignment="Center" Grid.Row="1" Opacity="0.6"
                  Height="182" Width="182"></Ellipse>
 
             <Ellipse HorizontalAlignment="Center" Stroke="#878B91" StrokeThickness="1"
-                 VerticalAlignment="Center" Grid.Row="1" Opacity="0.5"
+                 VerticalAlignment="Center" Grid.Row="1" Opacity="0.4"
                  Height="184" Width="184"></Ellipse>
 
             <Ellipse HorizontalAlignment="Center" Stroke="#878B91" StrokeThickness="1"
