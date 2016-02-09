@@ -38,7 +38,6 @@ namespace BatteryCurrent
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-           
             base.OnNavigatedTo(e);
             try
             {
@@ -52,6 +51,20 @@ namespace BatteryCurrent
             {
                 Debug.WriteLine(ex);
             }
+        }
+
+        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
+        {
+            try
+            {
+                timer.Stop();
+                timer.Tick -= timer_Tick;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Exception in stopping timer : " + ex);
+            }
+            base.OnNavigatingFrom(e);
         }
 
         private void timer_Tick(object sender, object e)
@@ -90,15 +103,52 @@ namespace BatteryCurrent
                 batteryStateText.Text = "Charging";
                 batteryStatus.Text = "Charging";
                 toWhatState.Text = "to charge";
-                timeToCharge.Text = ((((report.FullChargeCapacityInMilliwattHours) / 3.8) - ((report.RemainingCapacityInMilliwattHours) / 3.8)) / (report.ChargeRateInMilliwatts / 3.8)).ToString();
-
+                double diff = ((((double)report.FullChargeCapacityInMilliwattHours) / 3.8) - (((double)report.RemainingCapacityInMilliwattHours) / 3.8));
+                if (diff == 0)
+                {
+                    batteryStateText.Text = "Charged";
+                    batteryStatus.Text = "Charged";
+                    toWhatState.Opacity = 0;
+                    timeToCharge.Text = "";
+                    timeToCharge.Opacity = 0;
+                }
+                else
+                {
+                    double time_to_charge = Math.Abs( ((diff)) / ((double)report.ChargeRateInMilliwatts / 3.8));
+                    string hours = ((int)time_to_charge).ToString();
+                    string minutes = ((int)(time_to_charge * 60)).ToString();
+                    if (hours == "0")
+                    {
+                        timeToCharge.Text = minutes + " min ";
+                        timeInWords.Text = minutes + " min ";
+                    }
+                    else
+                    {
+                        timeToCharge.Text = hours + " h " + minutes + " min ";
+                        timeInWords.Text = hours = " h " + minutes + " min ";
+                    }
+                }
+                
             }
             else
             {
                 batteryStateText.Text = report.Status.ToString();
                 batteryStatus.Text = report.Status.ToString();
                 toWhatState.Text = "to discharge";
-                timeToCharge.Text = ((((report.RemainingCapacityInMilliwattHours) / 3.8)) / (report.ChargeRateInMilliwatts / 3.8)).ToString();
+                double time_to_charge = Math.Abs((((double)report.RemainingCapacityInMilliwattHours)/3.8) / ((double)report.ChargeRateInMilliwatts / 3.8));
+                Debug.WriteLine("Dischrge : Time to discharge : " + time_to_charge);
+                string hours = ((int)time_to_charge).ToString();
+                string minutes = ((int)((time_to_charge - (int)time_to_charge)* 60)).ToString();
+                if (hours == "0")
+                {
+                    timeToCharge.Text = minutes + " min ";
+                    timeInWords.Text = minutes + " min ";
+                }
+                else
+                {
+                    timeToCharge.Text = hours + " h " + minutes + " min ";
+                    timeInWords.Text = hours + " h " + minutes + " min ";
+                }
 
             }
             chargingpercentage.Text = ((int)((Convert.ToDouble(report.RemainingCapacityInMilliwattHours) / (Convert.ToDouble(report.FullChargeCapacityInMilliwattHours))) * 100)).ToString();
