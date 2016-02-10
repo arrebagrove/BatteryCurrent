@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:BatteryCurrent"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:charting="using:WinRTXamlToolkit.Controls.DataVisualization.Charting" 
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Page.Resources>
@@ -239,6 +240,7 @@
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1.2*"></ColumnDefinition>
@@ -255,17 +257,32 @@
                            FontFamily="Segoe MDL2 Assets" Foreground="#E15151" FontSize="25"></TextBlock>
 
                 <TextBlock x:Name="chargingORdischarging" Text="Charging rate" Margin="20"
-                           Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right"
+                           Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center"
                            FontSize="25" Foreground="#f3f4f7"></TextBlock>
-                <TextBlock x:Name="chargingRate" FontSize="25" HorizontalAlignment="Left" 
-                           Text="200" Grid.Row="1" Grid.Column="1" Margin="20"
+                <TextBlock x:Name="chargingRate" FontSize="25" HorizontalAlignment="Center" 
+                           Text="200" Grid.Row="2" Grid.ColumnSpan="2" Margin="20"
                            Foreground="#f3f4f7"></TextBlock>
-                <TextBlock Text="Voltage "  Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" 
+                <TextBlock Text="Voltage "  Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right" 
                            FontSize="25" Margin="20" Foreground="#f3f4f7"></TextBlock>
-                <TextBlock Text="3.8V" Margin="20" Grid.Row="2" Grid.Column="1" Foreground="#f3f4f7" FontSize="25"></TextBlock>
+                <TextBlock Text="3.8V" Margin="20" Grid.Row="3" Grid.Column="1" Foreground="#f3f4f7" FontSize="25"></TextBlock>
                 
                    
             </Grid>
+            <Grid Grid.Row="1">
+                <charting:Chart x:Name="myChart">
+                    <charting:LineSeries ItemsSource="{Binding}" DependentValuePath="Value"
+                                         IndependentValuePath="Key"></charting:LineSeries>
+                    <charting:Chart.Axes>
+                        <charting:DateTimeAxis Orientation="X" Location="Bottom">
+                            <charting:DateTimeAxis.AxisLabelStyle>
+                                <Style TargetType="charting:DateTimeAxisLabel">
+                                    <Setter Property="StringFormat" Value="{}{0:h:mm tt}"></Setter>
+                                </Style>
+                            </charting:DateTimeAxis.AxisLabelStyle>
+                        </charting:DateTimeAxis>
+                    </charting:Chart.Axes>
+                </charting:Chart>
+             </Grid>
             <StackPanel Orientation="Vertical" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Visibility="Collapsed">
                 <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="20" HorizontalAlignment="Center">
                     <TextBlock Text="Battery Status :" Visibility="Visible" Grid.Row="1" Grid.Column="0" Margin="0,10,0,10" HorizontalAlignment="Right" Foreground="#f3f4f7"></TextBlock>
