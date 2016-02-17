@@ -39,17 +39,7 @@ namespace BatteryCurrent
 
         private void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
-            myChart.DataContext = new KeyValuePair<DateTime, int>[]
-            {
-                new KeyValuePair<DateTime, int>(DateTime.Today.AddHours(10),1),
-                new KeyValuePair<DateTime, int>(DateTime.Today.AddHours(12),2),
-                new KeyValuePair<DateTime, int>(DateTime.Today.AddHours(14),3),
-                new KeyValuePair<DateTime, int>(DateTime.Today.AddHours(16),4)
-            };
-
-            DateTimeAxis axis = (DateTimeAxis)myChart.Axes[0];
-            axis.Minimum = DateTime.Today.AddHours(9);
-            axis.Maximum = DateTime.Today.AddHours(26);
+           
             //axis.AxisLabelStyle.Setters.Add(new Setter(AxisLabel.StringFormatProperty, "{0:" + Thread.CurrentThread.CurrentCulture.))
         }
 
@@ -176,6 +166,7 @@ namespace BatteryCurrent
             chargingRatemA.Text = (report.ChargeRateInMilliwatts / 3.8).ToString();
             chargingRatemW.Text = (report.ChargeRateInMilliwatts).ToString();
             Debug.WriteLine(report.ChargeRateInMilliwatts);
+            
             
             //fullEnergyCapacitymAH.Text = ((report.FullChargeCapacityInMilliwattHours)/3.8).ToString();
             //fullEnergyCapacitymWH.Text = ((report.FullChargeCapacityInMilliwattHours)).ToString();
