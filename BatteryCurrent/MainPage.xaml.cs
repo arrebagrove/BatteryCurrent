@@ -118,18 +118,18 @@ namespace BatteryCurrent
             if((report.Status.ToString()).ToLower() == "charging")
             {
                 batteryStateText.Text = "Charging";
-                chargingORdischarging.Text = "Charging";
-                batteryStatus.Text = "Charging";
+                //chargingORdischarging.Text = "Charging";
+                //batteryStatus.Text = "Charging";
                 toWhatState.Text = "to charge";
                 double diff = ((((double)report.FullChargeCapacityInMilliwattHours) / 3.8) - (((double)report.RemainingCapacityInMilliwattHours) / 3.8));
                 if (diff == 0)
                 {
                     batteryStateText.Text = "Charged";
-                    batteryStatus.Text = "Charged";
-                    chargingORdischarging.Text = "Charged";
+                    //batteryStatus.Text = "Charged";
+                    //chargingORdischarging.Text = "Charged";
                     toWhatState.Opacity = 0;
-                    timeToCharge.Text = "";
-                    timeToCharge.Opacity = 0;
+                    //timeToCharge.Text = "";
+                    //timeToCharge.Opacity = 0;
                 }
                 else
                 {
@@ -138,12 +138,12 @@ namespace BatteryCurrent
                     string minutes = ((int)((time_to_charge - (int)time_to_charge) * 60)).ToString();
                     if (hours == "0")
                     {
-                        timeToCharge.Text = minutes + " min ";
+                        //timeToCharge.Text = minutes + " min ";
                         timeInWords.Text = minutes + " min ";
                     }
                     else
                     {
-                        timeToCharge.Text = hours + " h " + minutes + " min ";
+                        //timeToCharge.Text = hours + " h " + minutes + " min ";
                         timeInWords.Text = hours + " h " + minutes + " min ";
                     }
                 }
@@ -152,8 +152,8 @@ namespace BatteryCurrent
             else
             {
                 batteryStateText.Text = report.Status.ToString();
-                batteryStatus.Text = report.Status.ToString();
-                chargingORdischarging.Text = report.Status.ToString();
+                //batteryStatus.Text = report.Status.ToString();
+                //chargingORdischarging.Text = report.Status.ToString();
                 toWhatState.Text = "to discharge";
                 double time_to_charge = Math.Abs((((double)report.RemainingCapacityInMilliwattHours)/3.8) / ((double)report.ChargeRateInMilliwatts / 3.8));
                 Debug.WriteLine("Discharge : Time to discharge : " + time_to_charge);
@@ -161,27 +161,28 @@ namespace BatteryCurrent
                 string minutes = ((int)((time_to_charge - (int)time_to_charge)* 60)).ToString();
                 if (hours == "0")
                 {
-                    timeToCharge.Text = minutes + " min ";
+                    //timeToCharge.Text = minutes + " min ";
                     timeInWords.Text = minutes + " min ";
                 }
                 else
                 {
-                    timeToCharge.Text = hours + " h " + minutes + " min ";
+                    //timeToCharge.Text = hours + " h " + minutes + " min ";
                     timeInWords.Text = hours + " h " + minutes + " min ";
                 }
 
             }
             chargingpercentage.Text = ((int)((Convert.ToDouble(report.RemainingCapacityInMilliwattHours) / (Convert.ToDouble(report.FullChargeCapacityInMilliwattHours))) * 100)).ToString();
-            chargingRate.Text = ((int)(report.ChargeRateInMilliwatts / 3.8)).ToString() + "mA";
+            //chargingRate.Text = ((int)(report.ChargeRateInMilliwatts / 3.8)).ToString() + "mA";
             chargingRatemA.Text = (report.ChargeRateInMilliwatts / 3.8).ToString();
             chargingRatemW.Text = (report.ChargeRateInMilliwatts).ToString();
             Debug.WriteLine(report.ChargeRateInMilliwatts);
-            fullEnergyCapacitymAH.Text = ((report.FullChargeCapacityInMilliwattHours)/3.8).ToString();
-            fullEnergyCapacitymWH.Text = ((report.FullChargeCapacityInMilliwattHours)).ToString();
+            
+            //fullEnergyCapacitymAH.Text = ((report.FullChargeCapacityInMilliwattHours)/3.8).ToString();
+            //fullEnergyCapacitymWH.Text = ((report.FullChargeCapacityInMilliwattHours)).ToString();
 
-            remainingEnergyCapacitymWH.Text = (report.RemainingCapacityInMilliwattHours).ToString();
-            remainingEnergyCapacitymAH.Text = ((report.RemainingCapacityInMilliwattHours) / 3.8).ToString();
-            batteryPercent.Text = ((int)((Convert.ToDouble(report.RemainingCapacityInMilliwattHours) / (Convert.ToDouble(report.FullChargeCapacityInMilliwattHours))) * 100)).ToString("F2") + "%";
+            //remainingEnergyCapacitymWH.Text = (report.RemainingCapacityInMilliwattHours).ToString();
+            //remainingEnergyCapacitymAH.Text = ((report.RemainingCapacityInMilliwattHours) / 3.8).ToString();
+            //batteryPercent.Text = ((int)((Convert.ToDouble(report.RemainingCapacityInMilliwattHours) / (Convert.ToDouble(report.FullChargeCapacityInMilliwattHours))) * 100)).ToString("F2") + "%";
             
         }
 
